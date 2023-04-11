@@ -1,0 +1,43 @@
+.snack-bar-container {
+  color: #0f172a;
+  background: white;
+  padding: 16px 14px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+  border-radius: 4px;
+  width: 416px;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    margin: auto;
+  }
+
+  .col-content {
+    display: flex;
+  }
+
+  .col-message {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+  }
+  .col-button {
+    display: flex;
+    flex-direction: column-reverse;
+    .action-button {
+      padding: 11px 16px;
+      color: #07173c;
+    }
+  }
+
+  &.success {
+    background: #4000a7;
+  }
+
+  &.error {
+    background: #a0ede8;
+  }
+}

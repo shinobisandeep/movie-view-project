@@ -1,0 +1,47 @@
+<div class="auth-page">
+  <div class="content login">
+    <h1>Welcome</h1>
+    <h2>Login to your account</h2>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="fields">
+          <div class="form-content">
+            <mat-label class="form-label"> User Name </mat-label>
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                formControlName="username"
+                placeholder="Enter Username"
+                name="username"
+              />
+              <mat-error></mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-content">
+            <mat-label class="form-label"> Password </mat-label>
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                formControlName="password"
+                placeholder="Password"
+                name="password"
+                type="password"
+              />
+            </mat-form-field>
+          </div>
+          </div>
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            class="action"
+            [disabled]="isLoading || loginForm.invalid"
+          >
+            Login
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="snack-bar-container">
+  <div class="col-content">
+    <div class="col-message">
+      <span [innerHTML]="data.message" class="link-style"></span>
+    </div>
+  </div>
+  <div *ngIf="data.actionText" class="col-button">
+      <button class="action-button" (click)="close()" mat-button>{{ data.actionText }}</button>
+  </div>
+</div>

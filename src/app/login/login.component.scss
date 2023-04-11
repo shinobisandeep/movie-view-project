@@ -1,0 +1,79 @@
+.auth-page {
+  background-color: #4e379a;
+  height: 100%;
+  overflow: auto;
+  padding: 0 24px;
+
+  .mat-card{
+    border-radius: 16px;
+    background-color: #ffffff;
+  }
+
+  .mat-form-field{
+    width: 100%;
+  }
+
+  h1, h2 {
+    color: #ffffff;
+  }
+
+  .action {
+    width: calc(50% - 8px);
+  }
+
+  .form-content{
+   width: 49%;
+  }
+
+  .mat-label .form-label{
+    display: block;
+    color: #0f172a;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  button{
+    display: block;
+    margin: auto;
+  }
+}
+
+.login mat-form-field .mat-form-field{
+  padding-bottom: 0px;
+}
+
+.content{
+ margin: 20px auto 40px auto;
+ max-width: 540px;
+ width: 100%;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 600px){
+  .content{
+    margin: 20px auto 120px auto;
+  }
+}
+
+.split-label{
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  border-top: 0.2em solid transparent;
+  padding: 0.5em 0 0.5em 0;
+  color: #0f172a;
+}
+
+.fields{
+  display: flex;
+  margin-left: 20px;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction: column;
+  align-items: center
+}
