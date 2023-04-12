@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from './auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SnackBarService, SnackBarType } from '../components/app-snackbar/snackbar.service';
+import { SnackBarService, SnackBarType } from '../components/app-snackbar/snackbar/snackbar.service';
+import { UserCredentials } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { SnackBarService, SnackBarType } from '../components/app-snackbar/snackb
 export class LoginComponent implements OnInit{
   isLoading = false;
   loginForm!: FormGroup
+  requestParam!: UserCredentials;
 
   constructor(private authService: AuthService, private router: Router, private snackBar: SnackBarService, private formBuilder: FormBuilder) { }
 
@@ -29,12 +31,13 @@ export class LoginComponent implements OnInit{
     }
 
     this.isLoading = true;
-    this.authService.login(this.loginForm.controls['username'].value , this.loginForm.controls['password'].value).subscribe(
+    this.requestParam = {... this.loginForm.value}
+    this.authService.login(this.requestParam).subscribe(
       (response) => {
         this.isLoading = false;
         if (response.is_success) {
           localStorage.setItem('token', response.data.token);
-          this.router.navigate(['/movies']);
+          this.router.navigate(['/movies-list']);
           this.snackBar.open('Login Successful',SnackBarType.Success,'close')
         } else {
           this.snackBar.open(response.error.message, SnackBarType.Error, 'close');

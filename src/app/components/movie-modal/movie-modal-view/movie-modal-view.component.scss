@@ -1,0 +1,11 @@
+.dialog {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Nunito Sans';
+
+  &__title {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-bottom: 20px;
+  }
+}

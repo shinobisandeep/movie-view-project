@@ -1,0 +1,61 @@
+<ng-container *ngIf="isLoading">
+  <app-spinner-load></app-spinner-load>
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+  <section class="module">
+    <div class="module-heading-container">
+      <div class="header-row">
+        <div class="row-heading">
+          <h1 class="module-heading">Movies Details</h1>
+        </div>
+        <div class="row-search">
+          <mat-form-field class="search-bar" appearance="outline">
+            <input
+              matInput
+              type="text"
+              [formControl]="searchInput"
+              [placeholder]="'SEARCH'"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div
+        class="mini-card"
+        *ngFor="let movie of moviesDetails"
+        (click)="openMovieModal(movie)"
+      >
+        <img mat-card-avatar src="/src/assets/images/logo.png" />
+        <div class="content-details">
+          <div class="movie-content-row">
+            <div class="content-box">
+              <div class="content-header">"Title"</div>
+              <div class="content-value">{{ movie.title }}</div>
+            </div>
+            <div class="content-box">
+              <div class="content-header">"Description"</div>
+              <div class="content-value">
+                {{ movie.description | slice : 0 : 30 }}
+                <span
+                  *ngIf="movie.description.length > 30"
+                  class="card-show-more"
+                  [matTooltip]="movie.description"
+                >
+                  "show more"
+                </span>
+              </div>
+            </div>
+            <div class="content-box">
+              <div class="content-header">"Genres"</div>
+              <div class="content-value" *ngFor="let item of splitStringsToArray(movie.genres)" ><li>{{ item }}</li></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

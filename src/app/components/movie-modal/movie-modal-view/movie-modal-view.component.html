@@ -1,0 +1,12 @@
+<!-- movie-modal.component.html -->
+<div class="dialog">
+  <h1 mat-dialog-title>{{ movie.title }}</h1>
+<div mat-dialog-content>
+  <img [src]="movie.uuid" alt="Movie Avatar">
+  <p>{{ movie.description }}</p>
+  <p>{{ movie.genres }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()">Close</button>
+</div>
+</div>

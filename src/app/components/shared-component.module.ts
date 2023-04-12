@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
-import { LoginModule } from './login/login.module';
-import { SnackBarService } from './components/app-snackbar/snackbar/snackbar.service';
-import { MovieListModule } from './movie-list/movie-list.module';
+import { SnackBarService } from './app-snackbar/snackbar/snackbar.service';
+import { MovieModalViewComponent } from './movie-modal/movie-modal-view/movie-modal-view.component';
+import { SnackbarComponent } from './app-snackbar/snackbar/snackbar.component';
 import { CommonModule } from '@angular/common';
-import { SharedComponentModule } from './components/shared-component.module';
+import { SpinnerLoadComponent } from './spinner/spinner-load/spinner-load.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [MovieModalViewComponent,SnackbarComponent, SpinnerLoadComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +24,10 @@ import { SharedComponentModule } from './components/shared-component.module';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatCardModule,
-    AppRoutingModule,
-    LoginModule,
     CommonModule,
-    MovieListModule,
-    SharedComponentModule
+    MatProgressSpinnerModule,
   ],
   providers: [SnackBarService],
-  bootstrap: [AppComponent]
+  exports: [MovieModalViewComponent,SnackbarComponent,SpinnerLoadComponent]
 })
-export class AppModule { }
+export class SharedComponentModule { }
