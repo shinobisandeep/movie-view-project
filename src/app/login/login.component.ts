@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackBarService, SnackBarType } from '../components/app-snackbar/snackbar/snackbar.service';
 import { UserCredentials } from '../models/user';
+import { FormsService } from './form.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,17 @@ export class LoginComponent implements OnInit{
   loginForm!: FormGroup
   requestParam!: UserCredentials;
 
-  constructor(private authService: AuthService, private router: Router, private snackBar: SnackBarService, private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router, private snackBar: SnackBarService, private formBuilder: FormBuilder, private formsService: FormsService) { }
 
   ngOnInit(): void{
     this.loginForm = this.formBuilder.group({
       username: [null, Validators.required],
       password: [null, Validators.required],
     });
+  }
+
+  validate(form: FormGroup, controlKey: string): boolean {
+    return this.formsService.validateFormField(form, controlKey);
   }
 
   onSubmit(): void {
@@ -42,10 +47,6 @@ export class LoginComponent implements OnInit{
         } else {
           this.snackBar.open(response.error.message, SnackBarType.Error, 'close');
         }
-      },
-      (error) => {
-        this.isLoading = false;
-        this.snackBar.open('Failed to login. Please try again later.', SnackBarType.Error,'Close');
       }
     );
   }

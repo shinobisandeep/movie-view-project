@@ -45,6 +45,6 @@ export class MovieService {
         this.snackBarService.open('Fetching Image Failed', SnackBarType.Error,'Close');
         return throwError(() => error);
       })
-    );;
+    );
   }
 }

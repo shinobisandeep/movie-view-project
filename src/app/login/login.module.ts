@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SharedComponentModule } from '../components/shared-component.module';
+import { FormsService } from './form.service';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -34,7 +35,7 @@ import { SharedComponentModule } from '../components/shared-component.module';
     SharedComponentModule
   ],
   exports: [LoginComponent],
-  providers: [AuthService]
+  providers: [AuthService, FormsService]
 })
 
 export class LoginModule {}

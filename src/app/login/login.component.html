@@ -5,7 +5,7 @@
 <ng-container *ngIf="!isLoading">
 <div class="auth-page">
   <div class="content login">
-    <h1>Welcome</h1>
+    <h1>Welcome To Movie Binge</h1>
     <h2>Login to your account</h2>
     <mat-card>
       <mat-card-content>
@@ -20,7 +20,7 @@
                 placeholder="Enter Username"
                 name="username"
               />
-              <mat-error></mat-error>
+              <mat-error  *ngIf="validate(loginForm, 'username')">This Field is Required</mat-error>
             </mat-form-field>
           </div>
           <div class="form-content">
@@ -33,6 +33,7 @@
                 name="password"
                 type="password"
               />
+              <mat-error  *ngIf="validate(loginForm, 'password')">This Field is Required</mat-error>
             </mat-form-field>
           </div>
           </div>
