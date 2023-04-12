@@ -1,5 +1,5 @@
 .dialog {
-  color: white;
+  color: rgb(157, 137, 137);
   text-align: center;
   padding: 20px;
   font-family: 'Nunito Sans';
@@ -8,4 +8,14 @@
     font-size: clamp(1rem, 4vw, 1.5rem);
     margin-bottom: 20px;
   }
+}
+
+.movie-avatar{
+  height: auto;
+  width: 100px;
+}
+
+.action-button {
+  padding: 11px 16px;
+  background-color: cadetblue;
 }

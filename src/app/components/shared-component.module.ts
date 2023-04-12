@@ -12,6 +12,8 @@ import { SnackbarComponent } from './app-snackbar/snackbar/snackbar.component';
 import { CommonModule } from '@angular/common';
 import { SpinnerLoadComponent } from './spinner/spinner-load/spinner-load.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MovieModalService } from './movie-modal/movie-modal-view/movie-modal-view.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [MovieModalViewComponent,SnackbarComponent, SpinnerLoadComponent
@@ -25,9 +27,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     MatCardModule,
     CommonModule,
+    MatButtonModule,
     MatProgressSpinnerModule,
   ],
-  providers: [SnackBarService],
-  exports: [MovieModalViewComponent,SnackbarComponent,SpinnerLoadComponent]
+  providers: [SnackBarService,MovieModalService],
+  exports: [MovieModalViewComponent,SnackbarComponent,SpinnerLoadComponent,]
 })
 export class SharedComponentModule { }

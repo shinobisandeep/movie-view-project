@@ -5,6 +5,8 @@ import { MovieModalViewComponent } from '../components/movie-modal/movie-modal-v
 import { MovieDetails, MoviesListResponse } from './movie-list.response';
 import { FormControl } from '@angular/forms';
 import { Subscription, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
+import { MovieModalService } from '../components/movie-modal/movie-modal-view/movie-modal-view.service';
+import { Movie } from '../components/movie-modal/movie-modal-view/movie.type';
 
 @Component({
   selector: 'app-movie-list',
@@ -21,7 +23,7 @@ export class MovieListComponent {
   imageName: string[] = [];
   avatar!: string ;
 
-  constructor(private movieService: MovieService, private dialog: MatDialog) {}
+  constructor(private movieService: MovieService, private dialog: MatDialog, private movieModel: MovieModalService) {}
 
   ngOnInit() {
     this.fetchMovies();
@@ -77,8 +79,13 @@ fetchImages(): void{
     this.fetchMovies();
   }
 
-  openMovieModal(movie: any) {
-    this.dialog.open(MovieModalViewComponent, { data: movie });
+  openMovieModal(movie: Movie) {
+    this.movieModel.show({
+      movies: {
+      title: movie.title,
+      description: movie.description,
+      genres: movie.genres
+    }, });
   }
 
 }

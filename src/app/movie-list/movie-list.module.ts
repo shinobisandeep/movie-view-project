@@ -17,6 +17,7 @@ import { MovieModalViewComponent } from '../components/movie-modal/movie-modal-v
 import { MovieService } from './movies.service';
 import { SharedComponentModule } from '../components/shared-component.module';
 import { SnackBarService } from '../components/app-snackbar/snackbar/snackbar.service';
+import { MovieModalService } from '../components/movie-modal/movie-modal-view/movie-modal-view.service';
 
 @NgModule({
       declarations: [MovieListComponent],
@@ -38,7 +39,7 @@ import { SnackBarService } from '../components/app-snackbar/snackbar/snackbar.se
     MatTooltipModule
   ],
   exports: [MovieListComponent],
-  providers: [MovieService, SnackBarService]
+  providers: [MovieService, SnackBarService, MovieModalService]
 })
 
 export class MovieListModule {}
